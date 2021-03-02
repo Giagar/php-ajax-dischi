@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . "/database/database.php";
+include __DIR__ . "/database/database.php"; // ho dovuto mettere include invece di require_once per poterlo ripetere nella 2a milestone.
 
 $data = $musicCollection;
 ?>
