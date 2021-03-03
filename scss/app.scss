@@ -19,14 +19,15 @@ header {
   nav {
     width: 700px;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0 25px 0 15px;
     height: 50px;
-    line-height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     .logo-container {
       color: green;
       display: inline-block;
-      // background-color: ;
       font-size: 2rem;
     }
   }
@@ -35,6 +36,7 @@ header {
 // _main
 .main-container {
   background-color: #191919;
+  min-height: 100vh;
 
   main {
     width: 700px;
