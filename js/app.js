@@ -52,14 +52,36 @@ new Vue({
         //     },
         
         // ],
-        albums: [],
+        albums: [], // data di riferimento per visualizzazion album
+        genres: [], // data di riferimento per menu select
     },
 
     mounted() {
         axios
         .get("http://localhost:8888/php-ajax-dischi/app/server.php")
-        .then(resp => this.albums = [...resp.data])
-        .catch(error => console.log(error))
+        .then(resp => {
+            // creazione lista album da visualizzare
+            this.albums = resp.data;
+
+            // creazione data per menu select
+            this.albums.forEach(album => {
+               if(!this.genres.includes(album.genre)) {
+                   this.genres.push(album.genre);
+               } 
+            });
+            console.log(this.genres);
+        })
+        .catch(error => console.log(error));
+
+    },
+
+    methods: {
+        // chiamata al server per recuperare solo gli album con genere selezionato
+        handleSelect(value) {
+            axios
+            .get(`http://localhost:8888/php-ajax-dischi/app/server.php?genre=${value}`)
+            .then(resp => this.albums = [...resp.data])
+        },
     }
 
 });

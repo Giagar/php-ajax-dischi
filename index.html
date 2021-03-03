@@ -17,6 +17,11 @@
                     <div class="logo-container">
                         <i class="fab fa-spotify logo"></i>
                     </div>
+
+                    <select name="genre" id="genre"  @change="handleSelect(genre.value)">
+                        <option value="all">All</option>
+                        <option v-for="genre in genres" :value="genre">{{genre}}</option>
+                    </select>
                 </nav>
             </header>
             <div class="main-container">
