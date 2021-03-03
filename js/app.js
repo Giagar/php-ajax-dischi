@@ -57,16 +57,24 @@ new Vue({
 
     mounted() {
         axios
-        .get("../app/server.php")
-        .then(
-            function(resp) {
-
-                // assegna i dati recuperati a albums
-                // this.albums = resp.data;
-                console.log(resp);
-
-            }
-        )
+        .get("http://localhost:8888/php-ajax-dischi/app/server.php")
+        .then(resp => this.albums = [...resp.data])
+        .catch(error => console.log(error))
     }
 
-})
+});
+
+Vue.config.devtools = true;
+
+// function filterByGenere($sourceArray, $genere) {
+//     $res = [];
+//     foreach($sourceArray as $album) {
+//         // ..
+//     }
+//     return $res;
+// }
+
+// $genreQuery = $_GET['genre'];
+// if(!empty($genreQuery)){
+//     $dischi = filterByGenere($sourceArray, $genreQuery);
+// }

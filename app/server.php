@@ -1,8 +1,10 @@
 <?php 
 
-include __DIR__ . "/../database/database.php";
+require_once __DIR__ . "/../database/database.php";
 
 $albums = $musicCollection;
 
-header("Content-Type: application/json");
-json_encode($albums);
+// var_dump($albums);
+
+header("Content-Type: applications/json");
+echo json_encode($albums);
