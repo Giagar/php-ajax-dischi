@@ -1,45 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Music Collection</title>
-        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css' />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-        <link rel="stylesheet" href="./css/app.css">
-    </head>
-    <body>
-        <div id="root" class="wrapper">
-            <header>
-                <nav>
-                    <div class="logo-container">
-                        <i class="fab fa-spotify logo"></i>
-                    </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Collection</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link rel="stylesheet" href="./css/app.css" />
+  </head>
+  <body>
+    <div id="root" class="wrapper">
+      <header>
+        <nav>
+          <div class="logo-container">
+            <i class="fab fa-spotify logo"></i>
+          </div>
 
-                    <select name="genre" id="genre"  @change="handleSelect(genre.value)">
-                        <option value="all">All</option>
-                        <option v-for="genre in genres" :value="genre">{{genre}}</option>
-                    </select>
-                </nav>
-            </header>
-            <div class="main-container">
-                <main>
-                    
-                    <div class="album-container" v-for="album in albums">
-                        <img :src="album.cover" alt="cover" />
-                        <div class="album-details">
-                            <h3 class="album-title">{{album.album}}</h3>
-                            <div class="band">{{album.band}}</div>
-                            <div class="date">{{album.date}}</div>
-                        </div>
-                    </div>
-                    
+          <select name="genre" id="genre" @change="handleSelect(genre.value)">
+            <option value="all">All</option>
+            <option v-for="genre in genres" :value="genre">{{genre}}</option>
+            <!-- _bonus 2: valore inserito per testare gestione errore 404 -->
+            <option value="testingErrors">testing error 404</option> 
+            <!-- _/bonus 2: valore inserito per testare gestione errore 404 -->
+          </select>
+        </nav>
+      </header>
+      <div class="main-container">
+        <main>
+          <!-- _bonus2: gestione errore 404 -->
+          <div v-if="error404" class="errorMessage">
+            Attenzione! Il genere selezionato non esiste.
+          </div>
+          <!-- _/bonus2: gestione errore 404 -->
 
-                </main>
+          <div v-else class="album-container" v-for="album in albums">
+            <img :src="album.cover" alt="cover" />
+            <div class="album-details">
+              <h3 class="album-title">{{album.album}}</h3>
+              <div class="band">{{album.band}}</div>
+              <div class="date">{{album.date}}</div>
             </div>
-        </div>
-        <script src="./js/app.js"></script>
-    </body>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script src="./js/app.js"></script>
+  </body>
 </html>

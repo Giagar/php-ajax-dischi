@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $musicCollection = [
     [
@@ -6,7 +6,7 @@ $musicCollection = [
         "band" => "Bon Jovi",
         "date" => 1988,
         "cover" => "https://via.placeholder.com/150.jpg",
-        "genre" => "rock" 
+        "genre" => "rock"
     ],
 
     [
@@ -14,7 +14,7 @@ $musicCollection = [
         "band" => "Queen",
         "date" => 1992,
         "cover" => "https://via.placeholder.com/150.jpg",
-        "genre" => "rock" 
+        "genre" => "rock"
     ],
 
     [
@@ -22,15 +22,15 @@ $musicCollection = [
         "band" => "Sting",
         "date" => 1993,
         "cover" => "https://via.placeholder.com/150.jpg",
-        "genre" => "pop" 
+        "genre" => "pop"
     ],
-    
+
     [
         "album" => "New Jersey",
         "band" => "Bon Jovi",
         "date" => 1988,
         "cover" => "https://via.placeholder.com/150.jpg",
-        "genre" => "rock" 
+        "genre" => "rock"
     ],
 
     [
@@ -38,7 +38,7 @@ $musicCollection = [
         "band" => "Queen",
         "date" => 1992,
         "cover" => "https://via.placeholder.com/150.jpg",
-        "genre" => "rock" 
+        "genre" => "rock"
     ],
 
     [
@@ -46,8 +46,7 @@ $musicCollection = [
         "band" => "Sting",
         "date" => 1993,
         "cover" => "https://via.placeholder.com/150.jpg",
-        "genre" => "pop" 
+        "genre" => "pop"
     ],
 
 ];
-
